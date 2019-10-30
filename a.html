@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+     <input type="text"  id="1"/>
+     <input type="text"  id="2" onclick="cal"/>
+     <input type="button" value="-" id="-" onclick="calcu('-')"/> 
+     <input type="button" value="+" id="+" onclick="calcu('+')"/> 
+     <input type="button" value="*" id="*" onclick="calcu('*')"/> 
+     <input type="button" value="/" id="/" onclick="calcu('/')"/> 
+    </div>
+     <script>
+       function calm(){
+          let FN=document.getElementById("1").value
+          let SN=document.getElementById("2").value
+          alert(FN-SN)
+     }
+     function calp(){
+          let FN=document.getElementById("1").value
+          let SN=document.getElementById("2").value
+          alert(FN*1+SN*1)
+     }
+     function calmu(){
+          let FN=document.getElementById("1").value
+          let SN=document.getElementById("2").value
+          alert(FN*SN)
+     }
+     function cald(){
+          let FN=document.getElementById("1").value
+          let SN=document.getElementById("2").value
+          alert(FN/SN)
+     }
+       function calcu(o){
+        let FN=document.getElementById("1").value
+        let SN=document.getElementById("2").value
+           switch (o){
+               case "-":
+               alert (FN-SN)
+               break
+               case "+":
+               alert(FN*1+SN*1)
+               break
+               case "*":
+               alert (FN*SN)
+               break
+               case "/":
+               alert(FN/SN)
+               break
+           }
+       }
+     </script>
+</body>
+</html>

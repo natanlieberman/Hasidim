@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <div>
+            <textarea id="text" cols="15" rows="2"></textarea>
+        </div>
+        <div>
+            <button onclick="num(1)">1</button>
+            <button onclick="num(2)">2</button>
+            <button onclick="num(3)">3</button>
+            <button onclick="num('*')">*</button>
+        </div>
+        <div>
+            <button onclick="num(4)">4</button>
+            <button onclick="num(5)">5</button>
+            <button onclick="num(6)">6</button>
+            <button onclick="num('/')">/</button>
+        </div>
+        <div>
+            <button onclick="num(7)">7</button>
+            <button onclick="num(8)">8</button>
+            <button onclick="num(9)">9</button>
+            <button onclick="num('+')">+</button>
+        </div>
+        <div>
+            <button onclick="clea()">C</button>
+            <button onclick="num(0)">0</button>
+            <button onclick="cal('=')" >=</button>
+            <button onclick="num('-')">-</button>
+        </div>
+        <div id="hisory"></div>
+        </center>
+        <script>
+        let numbers=[]
+          let multiply=0, divid=0, minus=0, plus=0
+        function num(x){
+            console.error('the num is', x)
+            console.log("num start")
+            document.getElementById('text').innerHTML +=x;
+            numbers.push(x)
+            document.getElementById('hisory').innerHTML +=x;
+            console.log("num ended")
+        }
+
+        function cal(o){
+            console.error ('cal', o)
+            let n='',  total=0
+            for(let i=0; i<numbers.length; i++){
+                console.log('numbers got numbers')
+                let c = numbers[i]
+                if(typeof c =="number"){
+                    n += c
+                }else{
+                    total += parseInt(n)
+                    switch (c){
+                       case '*':
+                       console.log('multiply as ben used')
+                       multiply +=1
+                       case '/':
+                       console.log('divid as ben used')
+                       divid +=1
+                       case '-':
+                       console.log('minus as ben used')
+                       minus +=1
+                       case '+':
+                       console.log('plus as ben used')
+                       plus += 1
+                    } n = ''
+                }
+               
+            }
+            while (multiply !==0){
+                total *= parseInt(n)
+                multiply = multiply-1
+            }
+            while (divid !==0){
+                console.log(n)
+                console.log(total)
+                total = total & parseInt (n)
+                divid = divid -1
+            }
+            if (plus !==0){
+                total += parseInt(n)
+                plus = plus-1
+            }
+            console.log('the resolt is', total)
+            document.getElementById('text').innerHTML +='='+ total;
+        }
+        function clea(){
+            console.error('you deleted the numbers')
+            document.getElementById('text').innerHTML = ""
+        }
+        </script>
+</body>
+</html>
